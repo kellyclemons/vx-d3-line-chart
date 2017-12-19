@@ -1,6 +1,18 @@
+// Similar to bitcoin.js file
+
 import { withScreenSize } from '@vx/responsive';
 import Background from '../components/background';
+import HeartRateValue from '../components/heartratevalue';
+// import jsonData from '../components/heartratedata.json';
+// console.log(jsonData);
 import BitcoinPrice from '../components/bitcoinprice';
+//
+// const heartratejson = heartratejson;
+
+// var jsonData = require('../components/heartratedata.json');
+
+// const myData = jsonData;
+// console.log(myData);
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +25,7 @@ class App extends React.Component {
   //https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json
   componentDidMount() {
     fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
+    // fetch('../components/heartratedata.json')
       .then(res => {
         return res.json();
       })
@@ -23,14 +36,18 @@ class App extends React.Component {
       });
   }
   render() {
+
     const { screenWidth, screenHeight } = this.props;
     const { data } = this.state;
     return (
       <div className="app">
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
+          {/* CHANGE LINE BELOW */}
+          {/* <HeartRateValue data={data} width={screenWidth} height={screenHeight} /> */}
           <BitcoinPrice data={data} width={screenWidth} height={screenHeight} />
-          <p className="disclaimer">
+          <p className="identity">
+            CHANGE LINE BELOW
             {data.disclaimer}
           </p>
         </div>
@@ -47,7 +64,8 @@ class App extends React.Component {
             font-family: arial;
             flex-direction: column;
           }
-          .disclaimer {
+
+          .identity {
             margin-top: 35px;
             font-size: 11px;
             color: white;
