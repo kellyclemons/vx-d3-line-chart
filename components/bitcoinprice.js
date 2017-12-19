@@ -3,10 +3,16 @@ import formatPrice from '../utils/formatPrice';
 
 export default function BitcoinPrice({ data = {}, width, height }) {
   if (!data.bpi) return <div>loading...</div>;
+  // replace with
+  // if (!data.resourceType) return <div>loading...</div>;
 
   const prices = Object.keys(data.bpi).map(k => ({
+    // replace with
+    // const prices = Object.keys(data.resourceType).map(k => ({
     time: k,
     price: data.bpi[k]
+    // replace with
+    // price: data.bpi[k]
   }));
 
   const currentPrice = prices[prices.length - 1].price;

@@ -1,8 +1,10 @@
+// Similar to bitcoin.js file
+
 import { withScreenSize } from '@vx/responsive';
 import Background from '../components/background';
 import BitcoinPrice from '../components/bitcoinprice';
 
-class App extends React.Component {
+class App1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +14,7 @@ class App extends React.Component {
 
   //https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json
   componentDidMount() {
-    fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
+    fetch('https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json')
       .then(res => {
         return res.json();
       })
@@ -29,9 +31,12 @@ class App extends React.Component {
       <div className="app">
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
+          {/* CHANGE LINE BELOW */}
           <BitcoinPrice data={data} width={screenWidth} height={screenHeight} />
-          <p className="disclaimer">
-            {data.disclaimer}
+          <p className="identity">
+            CHANGE LINE BELOW
+            {/* {data.disclaimer} */}
+            {data.id}
           </p>
         </div>
         <style jsx>{`
@@ -47,7 +52,8 @@ class App extends React.Component {
             font-family: arial;
             flex-direction: column;
           }
-          .disclaimer {
+
+          .identity {
             margin-top: 35px;
             font-size: 11px;
             color: white;
