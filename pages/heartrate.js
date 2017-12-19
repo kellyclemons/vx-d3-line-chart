@@ -3,7 +3,7 @@
 import { withScreenSize } from '@vx/responsive';
 import Background from '../components/background';
 import HeartrateValue from '../components/heartratevalue';
-import BitcoinPrice from '../components/bitcoinprice';
+// import BitcoinPrice from '../components/bitcoinprice';
 import jsonData from '../components/heartratedata.json';
 
 console.log(jsonData);
@@ -33,7 +33,7 @@ class App extends React.Component {
         <div className="center">
           {/* CHANGE LINE BELOW */}
           <HeartrateValue data={data} width={screenWidth} height={screenHeight} />
-          <BitcoinPrice data={data} width={screenWidth} height={screenHeight} />
+          {/* <BitcoinPrice data={data} width={screenWidth} height={screenHeight} /> */}
           <p className="identity">
             CHANGE LINE BELOW
             {data.disclaimer}
