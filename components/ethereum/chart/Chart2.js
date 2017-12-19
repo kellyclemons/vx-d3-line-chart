@@ -18,7 +18,7 @@ import HoverMarkers from './HoverMarkers';
 // const formatNumber = format(',.0f');
 // const formatTime = timeFormat('%I:%M%p');
 
-const formatBPMval = format('$,.2f');
+const formatBPMval = format('0');
 const formatNumber = format(',.0f');
 const formatTime = timeFormat('%I:%M%p');
 

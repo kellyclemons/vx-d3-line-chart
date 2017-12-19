@@ -25,13 +25,15 @@ export default function HeartrateValue({ data = {}, width, height }) {
     <div className="bitcoin">
       <div className="title">
         <div>
-          Heart Rate Values<br />
-          <small>last 30 days</small>
+          Harry Smith's Heart Rate Values<br />
+          {/* <small>last 30 days</small> */}
+          <small>last 6 days</small>
+          {/* toggle buttons can go here */}
         </div>
         <div className="spacer" />
         <div className="stats">
           <div className="current">
-            {formatBPMval(currentBpm)}
+            Current BPM: {formatBPMval(currentBpm)}
           </div>
           <div className={hasIncreased ? 'diffIncrease' : 'diffDecrease'}>
             {hasIncreased ? '+' : '-'}
@@ -84,7 +86,7 @@ export default function HeartrateValue({ data = {}, width, height }) {
           flex-direction: column;
         }
         .current {
-          font-size: 24px;
+          font-size: 16px;
         }
         .diffIncrease,
         .diffDecrease {
