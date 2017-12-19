@@ -11,9 +11,9 @@ import { bisector } from 'd3-array';
 
 import Tooltips from './tooltips';
 import HoverLine from './hoverline';
-import MaxPrice from './maxprice';
-import MinPrice from './minprice';
-// import formatPrice from '../utils/formatPrice';
+import MaxPrice from './maxbpmval';
+import MinPrice from './minbpmval';
+// import formatBPMval from '../utils/formatBPMval';
 import formatBPMval from '../utils/formatBPMval';
 import formatDate from '../utils/formatDate';
 
@@ -38,22 +38,22 @@ class Chart extends React.Component {
     const height = parentHeight - margin.top - margin.bottom;
 
     const x = d => new Date(d.time);
-    const y = d => d.price;
+    const y = d => d.bpmval;
     const bisectDate = bisector(d => x(d)).left;
 
     const firstPoint = data[0];
     const currentPoint = data[data.length - 1];
-    const minPrice = Math.min(...data.map(y));
-    const maxPrice = Math.max(...data.map(y));
+    const minBpmValue = Math.min(...data.map(y));
+    const maxBpmValue = Math.max(...data.map(y));
     const firstPrice = y(firstPoint);
     const currentPrice = y(currentPoint);
     const maxData = [
-      { time: x(firstPoint), price: maxPrice },
-      { time: x(currentPoint), price: maxPrice }
+      { time: x(firstPoint), bpmval: maxBpmValue },
+      { time: x(currentPoint), bpmval: maxBpmValue }
     ];
     const minData = [
-      { time: x(firstPoint), price: minPrice },
-      { time: x(currentPoint), price: minPrice }
+      { time: x(firstPoint), bpmval: minBpmValue },
+      { time: x(currentPoint), bpmval: minBpmValue }
     ];
 
     const xScale = scaleTime({
@@ -62,7 +62,7 @@ class Chart extends React.Component {
     });
     const yScale = scaleLinear({
       range: [height, 0],
-      domain: [minPrice, maxPrice + 100]
+      domain: [minBpmValue, maxBpmValue + 100]
     });
 
     return (
@@ -109,8 +109,8 @@ class Chart extends React.Component {
             />
             <MaxPrice
               data={maxData}
-              yText={yScale(maxPrice)}
-              label={formatPrice(maxPrice)}
+              yText={yScale(maxBpmValue)}
+              label={formatBPMval(maxBpmValue)}
               yScale={yScale}
               xScale={xScale}
               x={x}
@@ -150,8 +150,8 @@ class Chart extends React.Component {
               xScale={xScale}
               y={y}
               x={x}
-              yText={yScale(minPrice)}
-              label={formatPrice(minPrice)}
+              yText={yScale(minBpmValue)}
+              label={formatBPMval(minBpmValue)}
             />
             <Bar
               data={data}
@@ -192,7 +192,7 @@ class Chart extends React.Component {
           <Tooltips
             yTop={tooltipTop - 12}
             yLeft={tooltipLeft + 12}
-            yLabel={formatPrice(y(tooltipData))}
+            yLabel={formatBPMval(y(tooltipData))}
             xTop={yScale(y(minData[0])) + 4}
             xLeft={tooltipLeft}
             xLabel={formatDate(x(tooltipData))}
