@@ -14,7 +14,8 @@ class App1 extends React.Component {
 
   //https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json
   componentDidMount() {
-    fetch('https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json')
+    // fetch('https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json')
+    fetch('./components/heartratedata.json')
       .then(res => {
         return res.json();
       })
@@ -35,8 +36,7 @@ class App1 extends React.Component {
           <BitcoinPrice data={data} width={screenWidth} height={screenHeight} />
           <p className="identity">
             CHANGE LINE BELOW
-            {/* {data.disclaimer} */}
-            {data.id}
+            {data.disclaimer}
           </p>
         </div>
         <style jsx>{`
