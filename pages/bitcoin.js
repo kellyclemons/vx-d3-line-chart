@@ -3,8 +3,8 @@
 import { withScreenSize } from '@vx/responsive';
 import Background from '../components/background';
 import HeartRateValue from '../components/heartratevalue';
-// import jsonData from '../components/heartratedata.json';
-// console.log(jsonData);
+import jsonData from '../components/heartratedata.json';
+console.log(jsonData);
 import BitcoinPrice from '../components/bitcoinprice';
 //
 // const heartratejson = heartratejson;
@@ -25,6 +25,7 @@ class App extends React.Component {
   //https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json
   componentDidMount() {
     fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
+
     // fetch('../components/heartratedata.json')
       .then(res => {
         return res.json();
