@@ -16,6 +16,7 @@ import MinPrice from './minbpmval';
 // import formatBPMval from '../utils/formatBPMval';
 import formatBPMval from '../utils/formatBPMval';
 import formatDate from '../utils/formatDate';
+import jsonData from './heartratedata.json';
 
 class Chart2 extends React.Component {
   constructor(props) {

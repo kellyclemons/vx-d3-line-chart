@@ -2,21 +2,22 @@
 // json of bitcoin see fetch request
 import Chart2 from './chart2';
 import formatBPMval from '../utils/formatBPMval';
+import jsonData from './heartratedata.json';
 
 // import formatPrice from '../utils/formatPrice';
 
 export default function HeartrateValue({ data = {}, width, height }) {
   if (!data.bpm) return <div>loading...</div>;
 
-  const bpmvalues = Object.keys(data.bpm).map(k => ({
+  const bpm = Object.keys(data.bpm).map(k => ({
     // replace with
-    // const bpmvalues = Object.keys(data.resourceType).map(k => ({
+    // const bpm = Object.keys(data.resourceType).map(k => ({
     time: k,
     bpmval: data.bpm[k]
   }));
 
-  const currentBpm = bpmvalues[bpmvalues.length - 1].bpmval;
-  const firstBpm = bpmvalues[0].bpmval;
+  const currentBpm = bpm[bpm.length - 1].bpmval;
+  const firstBpm = bpm[0].bpmval;
   const diffBpm = currentBpm - firstBpm;
   const hasIncreased = diffBpm > 0;
 

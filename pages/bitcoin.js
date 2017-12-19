@@ -1,5 +1,3 @@
-// Similar to bitcoin.js file
-
 import { withScreenSize } from '@vx/responsive';
 import Background from '../components/background';
 import HeartRateValue from '../components/heartratevalue';

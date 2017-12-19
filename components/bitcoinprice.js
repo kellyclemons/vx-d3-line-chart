@@ -1,5 +1,6 @@
 import Chart from './chart';
 import formatPrice from '../utils/formatPrice';
+import jsonData from './heartratedata.json';
 
 export default function BitcoinPrice({ data = {}, width, height }) {
   if (!data.bpi) return <div>loading...</div>;

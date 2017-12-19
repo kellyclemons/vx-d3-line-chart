@@ -2,10 +2,12 @@
 
 import { withScreenSize } from '@vx/responsive';
 import Background from '../components/background';
-import HeartRateValue from '../components/heartratevalue';
-// import BitcoinPrice from '../components/bitcoinprice';
+import HeartrateValue from '../components/heartratevalue';
+import BitcoinPrice from '../components/bitcoinprice';
+import jsonData from '../components/heartratedata.json';
 
-class App1 extends React.Component {
+console.log(jsonData);
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,15 +18,11 @@ class App1 extends React.Component {
   //https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json
   componentDidMount() {
     // fetch('https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json')
-    fetch('./components/heartratedata.json')
-      .then(res => {
-        return res.json();
-      })
-      .then(json => {
+
         this.setState({
-          data: json
+          data: jsonData
         });
-      });
+
   }
   render() {
     const { screenWidth, screenHeight } = this.props;
@@ -34,8 +32,8 @@ class App1 extends React.Component {
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
           {/* CHANGE LINE BELOW */}
-          <HeartRateValue data={data} width={screenWidth} height={screenHeight} />
-          {/* <BitcoinPrice data={data} width={screenWidth} height={screenHeight} /> */}
+          <HeartrateValue data={data} width={screenWidth} height={screenHeight} />
+          <BitcoinPrice data={data} width={screenWidth} height={screenHeight} />
           <p className="identity">
             CHANGE LINE BELOW
             {data.disclaimer}
@@ -71,4 +69,4 @@ class App1 extends React.Component {
   }
 }
 
-export default withScreenSize(App1);
+export default withScreenSize(App);
