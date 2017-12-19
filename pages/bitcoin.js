@@ -6,13 +6,8 @@ import HeartRateValue from '../components/heartratevalue';
 import jsonData from '../components/heartratedata.json';
 console.log(jsonData);
 import BitcoinPrice from '../components/bitcoinprice';
-//
-// const heartratejson = heartratejson;
 
-// var jsonData = require('../components/heartratedata.json');
-
-// const myData = jsonData;
-// console.log(myData);
+import HeartrateValue from '../components/heartratevalue';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,8 +38,7 @@ class App extends React.Component {
       <div className="app">
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
-          {/* CHANGE LINE BELOW */}
-          {/* <HeartRateValue data={data} width={screenWidth} height={screenHeight} /> */}
+          <HeartRateValue data={data} width={screenWidth} height={screenHeight} />
           <BitcoinPrice data={data} width={screenWidth} height={screenHeight} />
           <p className="identity">
             CHANGE LINE BELOW

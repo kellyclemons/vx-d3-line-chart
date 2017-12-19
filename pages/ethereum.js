@@ -1,5 +1,5 @@
 import 'isomorphic-fetch';
-import { TopCorner, Banner, Chart, Footer } from '../components/ethereum';
+import { TopCorner, Banner, Chart, Chart2, Footer } from '../components/ethereum';
 
 class Ethereum extends React.Component {
   static async getInitialProps() {
@@ -75,6 +75,16 @@ class Ethereum extends React.Component {
         <div className="container">
           <div className="chart-container">
             <Chart
+              data={{
+                buckets: sortedBuckets,
+                start,
+                end,
+                maxHighPrice,
+                minLowPrice,
+                maxVolume
+              }}
+            />
+            <Chart2
               data={{
                 buckets: sortedBuckets,
                 start,

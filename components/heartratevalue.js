@@ -39,7 +39,7 @@ export default function HeartrateValue({ data = {}, width, height }) {
         </div>
       </div>
       <div className="chart">
-        <Chart
+        <Chart2
           data={bpm}
           parentWidth={width * 0.6}
           parentHeight={height * 0.45}
