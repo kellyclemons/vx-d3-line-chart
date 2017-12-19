@@ -1,18 +1,22 @@
+// similar to bitcoinprice.js
+// json of bitcoin see fetch request
 import Chart from './chart';
-import formatPrice from '../utils/formatPrice';
+import formatBPMval from '../utils/formatBPMval';
+
+// import formatPrice from '../utils/formatPrice';
 
 export default function HeartrateValue({ data = {}, width, height }) {
   if (!data.bpm) return <div>loading...</div>;
 
-  const beatsperminute = Object.keys(data.bpm).map(k => ({
+  const bpmvalues = Object.keys(data.bpm).map(k => ({
     // replace with
-    // const beatsperminute = Object.keys(data.resourceType).map(k => ({
+    // const bpmvalues = Object.keys(data.resourceType).map(k => ({
     time: k,
-    bpm: data.bpm[k]
+    bpmval: data.bpm[k]
   }));
 
-  const currentBpm = beatsperminute[beatsperminute.length - 1].bpm;
-  const firstBpm = beatsperminute[0].bpm;
+  const currentBpm = bpmvalues[bpmvalues.length - 1].bpmval;
+  const firstBpm = bpmvalues[0].bpmval;
   const diffBpm = currentBpm - firstBpm;
   const hasIncreased = diffBpm > 0;
 
@@ -26,17 +30,17 @@ export default function HeartrateValue({ data = {}, width, height }) {
         <div className="spacer" />
         <div className="stats">
           <div className="current">
-            {formatPrice(currentBpm)}
+            {formatBPMval(currentBpm)}
           </div>
           <div className={hasIncreased ? 'diffIncrease' : 'diffDecrease'}>
             {hasIncreased ? '+' : '-'}
-            {formatPrice(diffBpm)}
+            {formatBPMval(diffBpm)}
           </div>
         </div>
       </div>
       <div className="chart">
         <Chart
-          data={beatsperminute}
+          data={bpm}
           parentWidth={width * 0.6}
           parentHeight={height * 0.45}
           margin={{
