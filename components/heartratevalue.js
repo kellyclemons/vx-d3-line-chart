@@ -1,6 +1,6 @@
 // similar to bitcoinprice.js
 // json of bitcoin see fetch request
-import Chart from './chart';
+import Chart2 from './chart2';
 import formatBPMval from '../utils/formatBPMval';
 
 // import formatPrice from '../utils/formatPrice';

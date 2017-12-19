@@ -2,7 +2,8 @@
 
 import { withScreenSize } from '@vx/responsive';
 import Background from '../components/background';
-import BitcoinPrice from '../components/bitcoinprice';
+import HeartRateValue from '../components/heartratevalue';
+// import BitcoinPrice from '../components/bitcoinprice';
 
 class App1 extends React.Component {
   constructor(props) {
@@ -33,7 +34,8 @@ class App1 extends React.Component {
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
           {/* CHANGE LINE BELOW */}
-          <BitcoinPrice data={data} width={screenWidth} height={screenHeight} />
+          <HeartRateValue data={data} width={screenWidth} height={screenHeight} />
+          {/* <BitcoinPrice data={data} width={screenWidth} height={screenHeight} /> */}
           <p className="identity">
             CHANGE LINE BELOW
             {data.disclaimer}
@@ -69,4 +71,4 @@ class App1 extends React.Component {
   }
 }
 
-export default withScreenSize(App);
+export default withScreenSize(App1);

@@ -17,7 +17,7 @@ import MinPrice from './minbpmval';
 import formatBPMval from '../utils/formatBPMval';
 import formatDate from '../utils/formatDate';
 
-class Chart extends React.Component {
+class Chart2 extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -202,4 +202,4 @@ class Chart extends React.Component {
   }
 }
 
-export default withTooltip(Chart);
+export default withTooltip(Chart2);
