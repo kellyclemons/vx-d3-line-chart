@@ -25,8 +25,6 @@ class App extends React.Component {
   //https://hl7.org/fhir/2017Jan/observation-example-heart-rate.json
   componentDidMount() {
     fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
-
-    // fetch('../components/heartratedata.json')
       .then(res => {
         return res.json();
       })
@@ -36,6 +34,7 @@ class App extends React.Component {
         });
       });
   }
+
   render() {
 
     const { screenWidth, screenHeight } = this.props;
